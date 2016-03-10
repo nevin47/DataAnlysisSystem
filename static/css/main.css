@@ -1,0 +1,194 @@
+@charset "utf-8";
+body
+{
+    background-color: #f4fafd;
+    background-size: 100%;
+}
+#head
+{
+    width:95%;
+    height:90px;
+    margin:auto;
+    clear:both;
+    border-bottom-style: solid;
+    border-bottom-width:2px;
+    border-bottom-color: #328aa5;
+}
+#LOGO
+{
+    width:40%;
+    margin:10px auto;
+    float:left;
+}
+#header_link
+{
+    position: relative;
+    top: 80%;
+    float:right;
+    font-family:黑体;
+    font-size:large;
+}
+#header_link ul
+{
+    list-style:none; /* 去掉ul前面的符号 */
+    margin: 0px; /* 与外界元素的距离为0 */
+    padding: 0px; /* 与内部元素的距离为0 */
+    width: auto; /* 宽度根据元素内容调整 */
+}
+#header_link li
+{
+    float:left;
+}
+#middle
+{
+    margin:2px auto;
+    width:95%;
+    height:430px;
+}
+#navigation
+{
+    position:relative;
+    top:5px;
+    border-width:3px;
+    background-color:white;
+    width: 165px;
+    height:355px;
+    float:left;
+}
+#navigation ul
+{
+    list-style:none; /* 去掉ul前面的符号 */
+    margin: 0px; /* 与外界元素的距离为0 */
+    padding: 0px 0px; /* 与内部元素的距离为0 */
+    width: 100%; /* 宽度根据元素内容调整 */
+}
+#navigation li
+{
+    height:50px;
+    line-height:50px;/*文本垂直居中*/
+    font-family:微软雅黑;
+    text-align:center;
+    font-size:large;
+    margin: 0px;
+}
+#navigation li a
+{
+    text-decoration:none;
+    font-weight: 900;
+}
+.blu
+{
+    border: solid thin white;
+    height:50px;
+    font-family:微软雅黑;
+    text-align:center;
+    font-size:large;
+    margin: 0px;
+    background-color:#14b9d6;
+}
+.blu a
+{
+    color:white;
+}
+.whi a
+{
+    color: #525050;
+}
+#navigation2
+{
+    width: 100%;
+    height:30px;
+    float:left;
+    background-color: #44948e;
+}
+#navigation2 ul
+{
+    height:30px;
+    list-style:none; /* 去掉ul前面的符号 */
+    margin: 0px; /* 与外界元素的距离为0 */
+    padding: 0px; /* 与内部元素的距离为0 */
+    width: auto; /* 宽度根据元素内容调整 */
+}
+#navigation2 li
+{
+    height:20px;
+    line-height:25px;
+    float:left;
+    margin:10px 10px;
+    background-color: #e8e9ef;
+}
+#navigation2 li a
+{
+    text-decoration:none;
+    font-weight: 600;
+    color:#44948e;
+}
+#content
+{
+    width:85%;
+    float:right;
+    height:100%;
+}
+#teacher
+{
+    width:100%;
+    height:406px;
+    font-family:微软雅黑;
+    font-size:large;
+    float:right;
+    overflow: scroll;
+    background-color: white;
+    border:gray solid thin;
+        border-width:2px;
+}
+#teachertable
+{
+    width:100%;
+    border:solid thin;
+}
+th
+{
+  background-color: #0DAFCC;
+  color:white;
+}
+#class
+{
+    width:100%;
+    height:406px;
+    font-family:微软雅黑;
+    font-size:large;
+    float:right;
+    overflow: scroll;
+    background-color: white;
+    border:gray solid thin;
+        border-width:2px;
+}
+#base
+{
+    width:100%;
+    margin:auto;
+    text-align:center;
+    font-weight:900;
+}
+#contain
+{
+    width:100%;
+    height:430px;
+    font-family:微软雅黑;
+    font-size:large;
+    float:right;
+    background-color: white;
+    border:gray solid thin;
+        border-width:2px;
+}
+#contain_holiday
+{
+    width:100%;
+    height:430px;
+    font-family:微软雅黑;
+    font-size: medium;
+    float:right;
+    background-color: white;
+    border:gray solid thin;
+        border-width:2px;
+}

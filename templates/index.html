@@ -1,0 +1,26 @@
+$def with (pagesession,dataget)
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Data Analysis System alfa 0.1</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="static/css/index.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div id="head">
+            <h1>Data Analysis System</h1>
+            <h2>alfa 0.1</h2>
+        </div>
+        <div id="middle">
+            <form action="login" method="post">
+            <table id="logintable">
+            <tr><td>用户名：</td><td><input type="text" name="username"/></td></tr>
+            <tr><td>密码：</td><td><input type="password" name="password"/></td></tr>
+            </table>
+            <input class="submitbottom" type="submit" value="登陆"/>
+            </form>
+            $if dataget.loginstatue:
+                Wrong password or No username!
+        </div>
+        <div id="base">(c)Nevin Qin. All Rights Reserved<br />强烈建议您使用Chrome Firefox IE9以上浏览器使用本系统</div>
+    </body>
+</html>
