@@ -1,0 +1,8 @@
+$def with(proba, pre, initArray)
+<div id="svmresult">
+    <table id="svmtable">
+        <tr><td>Predict</td><td>Probable</td></tr>
+        $for key,PRV in enumerate(proba):
+            <tr><td>$PRV</td><td>$pre[key]</td></tr>
+    </table>
+</div>

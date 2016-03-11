@@ -71,8 +71,8 @@ def readTestData(filename, scaler = 1):
     # 归一化
     if scaler == 1:
         min_max_scaler = preprocessing.MinMaxScaler()  # 设置归一化
-        dataSet = min_max_scaler.fit_transform(dataSet)  # 归一化
-    return dataSet
+        dataset = min_max_scaler.fit_transform(dataset)  # 归一化
+    return dataset
 
 def testSample(pre, test):
     '''

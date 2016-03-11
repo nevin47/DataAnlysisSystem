@@ -122,5 +122,4 @@ def balanceDataforGA(arrayValue, *data):
             # initArray[index] = arrayValue[j]
             initArray[index] = arrayValue[random.randrange(0,6)]  # Happy!
             j += 1
-    print "GAINIT",initArray
     return balanceData(dataSet1, labels1, dataSet2, labels2, initArray)

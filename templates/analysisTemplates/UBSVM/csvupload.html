@@ -1,7 +1,10 @@
-<div id="upload" enctype="multipart/form-data">
-    <form action="analysisPOST" method="post">
-        <p>File Name:<input type="text" name="filename"/></p>
-        <p>File Name:<input type="file" name="file" /></p>
+<div id="upload">
+    <form method="POST" enctype="multipart/form-data" action="/analysisPOST">
+        <p>Filename:<input type="text" name="DBfilename" /></p>
+        <p>Please Choose File:<input type="file" name="myfile" /></p>
+        <p>What kind of the file is ?
+        <input type="radio" name="filetype" value="1"/>Test File
+        <input type="radio" name="filetype" value="2"/>Train File</p>
         <input type="submit" />
     </form>
 </div>

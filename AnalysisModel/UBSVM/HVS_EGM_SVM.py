@@ -19,13 +19,12 @@ def main(filename, testfilename, scaler, MAXFEATURENUM, **svmParameter):
     dataSet1, labels1, dataSet2, labels2 = basef.readData(filename, scaler)
 
     initArray = en.featureSample(dataSet1, labels1, dataSet2, labels2, MAXFEATURENUM)
-    print "初始化指标:",initArray
 
-    '''
-    preTestX = np.vstack([dataSet1,dataSet2])
-    preLabels = np.hstack([labels1,labels2])
-    '''
 
+    #preTestX = np.vstack([dataSet1,dataSet2])
+    #preLabels = np.hstack([labels1,labels2])
+
+    preTestX = basef.readTestData(testfilename, scaler)
 
     # Todo:此处可以直接调用遗传算法模块了 -- By nevin47
     data = (dataSet1, labels1, dataSet2, labels2, initArray)
@@ -39,21 +38,21 @@ def main(filename, testfilename, scaler, MAXFEATURENUM, **svmParameter):
 
     return proba, pre, initArray
 
-if __name__ == "__main__":
-    # demo
-    filename1 = '/Users/nevin47/Desktop/Project/Academic/Code/Python/SVM/UnbalancedDataSVM/DataSet/test/wpbc.csv' # 设置读取文件
-    filename = '/Users/nevin47/Desktop/Project/Academic/Code/Python/SVM/UnbalancedDataSVM/DataSet/CreditOriginData2.csv'
-    # filename = '/Users/nevin47/Desktop/Project/Academic/Code/Python/SVM/UnbalancedDataSVM/DataSet/Heart2.csv'
-    scaler = 1 # 决定是否归一化数据
-    MAXFEATURENUM = 5 # 设置指标离散最大值
-    SUMG = []
-    SUMF = []
-    for i in range(30):
-        tempG,tempF = main(filename, scaler, MAXFEATURENUM, kernel='rbf', C=15.0, gamma= 1)
-        SUMG.append(tempG)
-        SUMF.append(tempF)
-    print "AVG-G: %f,AVG-F %f",sum(SUMG)/30.0,sum(SUMF)/30.0
-
-# test
-
-# print dataSet1
+# if __name__ == "__main__":
+#     # demo
+#     filename1 = '/Users/nevin47/Desktop/Project/Academic/Code/Python/SVM/UnbalancedDataSVM/DataSet/test/wpbc.csv' # 设置读取文件
+#     filename = '/Users/nevin47/Desktop/Project/Academic/Code/Python/SVM/UnbalancedDataSVM/DataSet/CreditOriginData2.csv'
+#     # filename = '/Users/nevin47/Desktop/Project/Academic/Code/Python/SVM/UnbalancedDataSVM/DataSet/Heart2.csv'
+#     scaler = 1 # 决定是否归一化数据
+#     MAXFEATURENUM = 5 # 设置指标离散最大值
+#     SUMG = []
+#     SUMF = []
+#     for i in range(30):
+#         tempG,tempF = main(filename, scaler, MAXFEATURENUM, kernel='rbf', C=15.0, gamma= 1)
+#         SUMG.append(tempG)
+#         SUMF.append(tempF)
+#     print "AVG-G: %f,AVG-F %f",sum(SUMG)/30.0,sum(SUMF)/30.0
+#
+# # test
+#
+# # print dataSet1

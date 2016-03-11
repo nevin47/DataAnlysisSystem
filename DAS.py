@@ -3,6 +3,7 @@
 import web
 import systemModel.login as loginModel
 import systemModel.subsystemController as subC
+import AnalysisModel.AnalysisController as anC
 
 web.config.debug = False
 urls = (
@@ -65,21 +66,32 @@ class analysis:
                 return "No input!"
 
     def POST(self):
-        return 0
-
+        pagesession = web.config._session
+        if pagesession.login != 1:
+            raise web.seeother('/')
+        else:
+            dataget = web.input(subsys=None, func=None, apost=None)
+            if dataget.subsys and dataget.apost and dataget.func:
+                return anC.mainController(dataget)
 
 # analysisPOST #
 class analysisPOST:
     def POST(self):
+        # TODO: 改类别
         x = web.input(myfile={})
-        filedir = '/Users/nevin47/Desktop/Project/Academic/Code/Python/DataAnlysisSystem/static/csv' # change this to the directory you want to store the file in.
+        filedir = '/Users/nevin47/Desktop/Project/Academic/Code/Python/DataAnlysisSystem/DataAnlysisSystem/static/csv' # change this to the directory you want to store the file in.
+        #filedir = 'static/csv' # change this to the directory you want to store the file in.
         if 'myfile' in x: # to check if the file-object is created
+            DBfilename = str(x.DBfilename) + '.csv'
+            filetype = int(x.filetype)
+            # For file update
             filepath=x.myfile.filename.replace('\\','/') # replaces the windows-style slashes with linux ones.
-            filename=filepath.split('/')[-1] # splits the and chooses the last part (the filename with extension)
-            fout = open(filedir +'/'+ filename,'w') # creates the file where the uploaded file should be stored
+            fout = open(filedir +'/'+ DBfilename,'w') # creates the file where the uploaded file should be stored
             fout.write(x.myfile.file.read()) # writes the uploaded file to the newly created file.
             fout.close() # closes the file, upload complete.
-        raise web.seeother('/upload')
+            # For DB operate
+            db.insert('UBSVMFile', filename=DBfilename, type=filetype)
+        raise web.seeother('/analysis?subsys=UBSVM')
 
 
 
