@@ -1,0 +1,29 @@
+$def with (filename,filename2,filename3)
+<div id="upload">
+    <form method="POST" action="/analysis?subsys=CloudKNN&func=result">
+        <p>Train Cloud File:
+            <select name="traincloudfilename">
+                $for i in filename:
+                    $if i.type == 1:
+                        <option value="$i.filename">$i.filename</option>
+            </select>
+        </p>
+        <p>Score File:
+            <select name="scorefilename">
+                $for j in filename2:
+                    $if j.type == 2:
+                        <option value="$j.filename">$j.filename</option>
+            </select>
+        </p>
+        <p>Test Cloud File:
+            <select name="testfilename">
+                $for l in filename3:
+                    $if l.type == 3:
+                        <option value="$l.filename">$l.filename</option>
+            </select>
+        </p>
+        <p>K:<input type="text" name="kvalue" /></p>
+        <input type="hidden" name="apost" value="1" />
+        <input type="submit" />
+    </form>
+</div>

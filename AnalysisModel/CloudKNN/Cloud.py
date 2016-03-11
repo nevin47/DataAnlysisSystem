@@ -4,16 +4,16 @@ import numpy as np
 from sklearn import neighbors
 import csv
 
-def CloudKNN():
+def CloudKNN(trainSample,cloud,predict,k):
     """Function which reads from the file and yields a generator"""
     #read cloud
-    originReader = csv.reader(file("/Users/nevin47/downloads/u2.csv",'rb'))
+    originReader = csv.reader(file(cloud,'rb'))
     List2 = []
     for line2 in originReader:
         List2.append(line2)
 
     # read test
-    cloudReader =  csv.reader(file("/Users/nevin47/downloads/movie1.csv",'rb'))
+    cloudReader =  csv.reader(file(trainSample,'rb'))
     numofMovie = 0
     numofPerson = 0
     for line in cloudReader:
@@ -22,7 +22,7 @@ def CloudKNN():
         numofPerson += 1
     print numofMovie,numofPerson
 
-    preReader = csv.reader(file("/Users/nevin47/downloads/u1.csv",'rb'))      #读取要预测的云模型
+    preReader = csv.reader(file(predict,'rb'))
 
     List10 = []
     numofPre = 0
@@ -39,7 +39,6 @@ def CloudKNN():
           a.append(-1)
 
 
-    print a
 
        #errorValue = 0.0
        #testofnum  = 0
@@ -48,7 +47,7 @@ def CloudKNN():
     predictScore = []
     for j in range(numofMovie):
           List1 = []  # train Array
-          originReader =  csv.reader(file("/Users/nevin47/downloads/movie1.csv",'rb'))
+          originReader =  csv.reader(file(trainSample,'rb'))
           for line in originReader:
              List1.append(line[j])
           L1 = []
@@ -80,5 +79,19 @@ def CloudKNN():
             print j
             pass
 
-    predictScore = np.matrix(predictScore)
+    predictScore = np.array(predictScore)
     return predictScore
+
+# trainSample = "/Users/nevin47/downloads/movie1.csv"           #读取训练文件
+#
+# cloud  = "/Users/nevin47/downloads/u2.csv"           #读取云模型
+#
+# predict  = "/Users/nevin47/downloads/u1.csv"           #读取测试文件
+#
+# k = 15                                                 #设置k值
+#
+# pre = CloudKNN(trainSample,cloud,predict,k)
+#
+# for i in pre:
+#     for j in i:
+#         print j

@@ -1,7 +1,20 @@
+$def with (filename,filename2,filename3)
 <div id="upload">
     <form method="POST" action="/analysis?subsys=UBSVM&func=result">
-        <p>Train Filename:<input type="text" name="testfilename" /></p>
-        <p>Test Filename:<input type="text" name="trainfilename" /></p>
+        <p>Train Filename:
+            <select name="trainfilename">
+                $for i in filename:
+                    $if i.type == 2:
+                        <option value="$i.filename">$i.filename</option>
+            </select>
+        </p>
+        <p>Test Filename:
+            <select name="testfilename">
+                $for j in filename2:
+                    $if j.type == 1:
+                        <option value="$j.filename">$j.filename</option>
+            </select>
+        </p>
         <input type="hidden" name="apost" value="1" />
         <input type="submit" />
     </form>
