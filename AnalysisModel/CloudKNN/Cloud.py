@@ -73,14 +73,14 @@ def CloudKNN(trainSample,cloud,predict,k):
             except ValueError,e:
                 print e
                 print j
-                predictScore.append(a)
+                predictScore.append(np.array(a))
           except ValueError,e:
             print 'L1=',L1,'L2=',L2
             print j
             pass
 
     predictScore = np.array(predictScore)
-    return predictScore
+    return np.array(predictScore)
 
 # trainSample = "/Users/nevin47/downloads/movie1.csv"           #读取训练文件
 #
